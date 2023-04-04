@@ -1,17 +1,15 @@
-import Image from "next/image";
-import ArtPiecePreview from "./artPiecePreview";
 import { useState } from "react";
-
-export default function ArtPieces({ pieces }) {
-
+import Image from "next/image";
+import ArtPieces from "./artPieces";
+import ArtPiecePreview from "./artPiecePreview";
+export default function Spotlight({ image, artist }) {
   return (
     <>
-      {pieces.map((picture) => {
+      {pieces.Math.random((picture) => {
         return (
           <ul key={picture.slug}>
             <ArtPiecePreview
               image={picture.imageSource}
-              title={picture.name}
               artist={picture.artist}
             />
           </ul>
