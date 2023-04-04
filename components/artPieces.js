@@ -3,7 +3,7 @@ import ArtPiecePreview from "./artPiecePreview";
 import { useState } from "react";
 
 export default function ArtPieces({ pieces }) {
-  console.log(pieces);
+
   return (
     <>
       {pieces.map((picture) => {
