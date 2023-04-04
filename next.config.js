@@ -2,8 +2,9 @@
 
 const nextConfig = {
   images: {
-    domains: ["https://example-apis.vercel.app/api/art"],
+    domains: ["example-apis.vercel.app"],
   },
+
   compiler: {
     styledComponents: true,
   },
