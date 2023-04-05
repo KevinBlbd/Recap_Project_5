@@ -1,7 +1,7 @@
 import { Spotlight } from "./spotlight.styled";
 import Image from "next/image";
 
-export default function SpotLight({ image, artist }) {
+export default function spotLight({ image, artist }) {
   return (
     <>
       <Spotlight>

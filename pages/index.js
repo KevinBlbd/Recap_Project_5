@@ -1,7 +1,8 @@
 import useSWR from "swr";
 import { React } from "react";
-import ArtPieces from "../components/artPieces/artPieces";
-import SpotLight from "../components/spotlight/spotlight";
+import ArtPieces from "./artPieces/index.js";
+import SpotLight from "./spotlight/index.js";
+import NavigationBar from "../components/navigation.js";
 const URL = "https://example-apis.vercel.app/api/art";
 
 export default function HomePage() {
@@ -17,7 +18,7 @@ export default function HomePage() {
   function getRandomImageArtist() {
     return Math.floor(Math.random() * data.length);
   }
-  function Images() {
+  function spotlightPage() {
     let numberOfPictureArtist = getRandomImageArtist();
     return (
       <SpotLight
@@ -25,12 +26,15 @@ export default function HomePage() {
         image={data[numberOfPictureArtist].imageSource}
       />
     );
+    // function navigationFunction() {}
   }
 
   return (
     <div>
-      {Images()}
-      <ArtPieces pieces={data} />
+      {" "}
+      <NavigationBar />
+      {spotlightPage()}
+      {/* <ArtPieces pieces={data} /> */}
     </div>
   );
 }
