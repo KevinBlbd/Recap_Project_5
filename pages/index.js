@@ -1,24 +1,25 @@
 import useSWR from "swr";
 import { React } from "react";
-import ArtPieces from "./artPieces/index.js";
-import SpotLight from "./spotlight/index.js";
-import NavigationBar from "../components/navigation.js";
+import ArtPieces from "../components/artPieces/index.js";
+import SpotLight from "../components/spotlight/index.js";
+import NavigationBar from "../components/navigation/index.js";
 const URL = "https://example-apis.vercel.app/api/art";
+// import App from "./_app.js";
 
-export default function HomePage() {
-  const { data, error, isLoading } = useSWR(URL);
+export default function SpotlightPage({ data }) {
+  // const { data, error, isLoading } = useSWR(URL);
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
-  if (error) {
-    return <h1>Please reload</h1>;
-  }
-
+  // if (isLoading) {
+  //   return <h1>Loading...</h1>;
+  // }
+  // if (error) {
+  //   return <h1>Please reload</h1>;
+  // }
+  console.log(data);
   function getRandomImageArtist() {
     return Math.floor(Math.random() * data.length);
   }
-  function spotlightPage() {
+  function Image() {
     let numberOfPictureArtist = getRandomImageArtist();
     return (
       <SpotLight
@@ -26,15 +27,7 @@ export default function HomePage() {
         image={data[numberOfPictureArtist].imageSource}
       />
     );
-    // function navigationFunction() {}
   }
 
-  return (
-    <div>
-      {" "}
-      <NavigationBar />
-      {spotlightPage()}
-      {/* <ArtPieces pieces={data} /> */}
-    </div>
-  );
+  return <div>{Image()}</div>;
 }
